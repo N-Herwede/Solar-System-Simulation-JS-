@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Three.js Solar System - Full Features</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Parameter Panel (Right Side) -->
+  <div id="paramPanel">
+    <div id="paramHeader" onclick="togglePanel()">
+      <div id="paramLabel">Parameters</div>
+      <div id="paramArrow">&#10095;</div>
+    </div>
+    <div id="paramContent">
+      <!-- Controls Section -->
+      <div class="subsection">
+        <div class="subHeader" onclick="toggleSubsection(this)">
+          <span>Controls</span>
+          <span class="subArrow">&#10095;</span>
+        </div>
+        <div class="subContent">
+          <label>Speed:</label>
+          <input type="range" id="speedSlider" min="-10" max="10" step="0.1" value="1" />
+          <span id="speedValue">1.0</span>
+
+          <label>Zoom:</label>
+          <input type="range" id="zoomSlider" min="10" max="100" step="5" value="50" />
+          <span id="zoomValue">50</span>
+
+          <label>Planet Size:</label>
+          <input type="range" id="sizeSlider" min="0.1" max="5" step="0.1" value="1" />
+          <span id="sizeValue">1.0</span>
+        </div>
+      </div>
+
+      <!-- Clock Subsection -->
+      <div class="subsection">
+        <div class="subHeader" onclick="toggleSubsection(this)">
+          <span>Clock</span>
+          <span class="subArrow">&#10095;</span>
+        </div>
+        <div class="subContent">
+          <label for="clockToggle">Show Clock:</label>
+          <input type="checkbox" id="clockToggle" checked />
+        </div>
+      </div>
+
+      <!-- Info Subsection -->
+      <div class="subsection">
+        <div class="subHeader" onclick="toggleSubsection(this)">
+          <span>Info</span>
+          <span class="subArrow">&#10095;</span>
+        </div>
+        <div class="subContent">
+          <label for="alwaysShowNames">Always display names:</label>
+          <input type="checkbox" id="alwaysShowNames" />
+          <br/><br/>
+          <label for="nameMode">Display mode:</label>
+          <select id="nameMode">
+            <option value="all">All</option>
+            <option value="planet">Planets Only</option>
+            <option value="moon">Moons Only</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Views Subsection -->
+      <div class="subsection">
+        <div class="subHeader" onclick="toggleSubsection(this)">
+          <span>Views</span>
+          <span class="subArrow">&#10095;</span>
+        </div>
+        <div class="subContent">
+          <!-- External Light -->
+          <label for="externalLightToggle">Enable External Light:</label>
+          <input type="checkbox" id="externalLightToggle" />
+          <br/><br/>
+          <label for="externalLightIntensity">Light Intensity:</label>
+          <input type="range" id="externalLightIntensity" min="0" max="5" step="0.1" value="1" />
+          <span id="externalLightIntensityValue">1.0</span>
+          <br/><br/>
+          <!-- (Optional) Camera Mode -->
+          <label for="cameraModeSelect">Camera Mode:</label>
+          <select id="cameraModeSelect">
+            <option value="orbit">Orbit</option>
+            <option value="free">Free</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clock (top-left corner) -->
+  <div id="clock">Time: 00:00, 0 days, 0 years</div>
+
+  <!-- Floating Info Panel for Hover -->
+  <div id="infoPanel" class="hidden">
+    <h2 id="planetName">Celestial Body</h2>
+    <p><strong>Size:</strong> <span id="planetSize"></span></p>
+    <p><strong>Temperature:</strong> <span id="planetTemp"></span></p>
+    <p><strong>Distance from Sun:</strong> <span id="planetDistance"></span></p>
+  </div>
+
+  <!-- Planet Description LEFT SIDE Panel -->
+  <div id="planetDescPanel">
+    <div id="descHeader">
+      <span id="descPlanetName">Planet Name</span>
+      <span id="closeDescPanel">&times;</span>
+    </div>
+    <div id="descContent"></div>
+  </div>
+
+  <!-- Fullscreen Planet Popup (optional) -->
+  <div id="planetPopup">
+    <div id="planetPopupContent">
+      <span id="planetPopupClose">&#10006;</span>
+      <h2 id="popupPlanetName"></h2>
+      <p id="popupPlanetDetails"></p>
+    </div>
+  </div>
+
+  <!-- Three.js & Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- Data + Descriptions -->
+  <script type="module" src="planetsdata.js"></script>
+  <script type="module" src="planetsdescriptions.js"></script>
+
+  <!-- Main logic -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>

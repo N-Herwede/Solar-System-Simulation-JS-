@@ -1,0 +1,254 @@
+/* Reset + Body */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+    background: black;
+    color: white;
+}
+
+/* The Three.js canvas */
+canvas {
+    display: block;
+}
+
+/* ---------- PARAMETER PANEL (RIGHT SIDE) ---------- */
+#paramPanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    z-index: 9999;
+    transition: width 0.3s;
+}
+
+#paramPanel.collapsed {
+    width: 40px;
+}
+
+#paramHeader {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#paramLabel {
+    font-size: 20px;
+    color: white;
+
+}
+
+#paramArrow {
+    font-size: 16px;
+    color: white;
+}
+
+#paramContent {
+    padding: 10px;
+    color: white;
+}
+
+/* Subsections inside param panel */
+.subsection {
+    border-top: 1px solid #444;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.subHeader {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.subArrow {
+    font-size: 14px;
+}
+
+.subContent {
+    padding: 5px 0;
+    display: none;
+}
+
+/* Range inputs, labels, etc. */
+input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+label,
+span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Clock (top-left corner) */
+#clock {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    font-size: 14px;
+    z-index: 10000;
+}
+
+/* Hover Info Panel */
+#infoPanel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* hidden by default */
+    pointer-events: none; /* no mouse interaction */
+}
+
+#infoPanel.visible {
+    display: block;
+}
+
+/* Name labels for objects */
+.objectLabel {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    pointer-events: none;
+    text-shadow: 0 0 5px black;
+}
+
+/* ---------- PLANET DESCRIPTION LEFT PANEL ---------- */
+#planetDescPanel {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 5%;
+    width: 40%;
+    height: 80%;
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.8);
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    overflow-y: auto;
+    display: none; /* hidden initially */
+    z-index: 10001; /* above most elements */
+    transition: width 0s 0.3s; 
+};
+
+
+/* Make the planetDescPanel's scrollbar black */
+#planetDescPanel {
+  /* If you want a custom track/thumb color in Firefox as well: */
+  scrollbar-color: #333 #000; /* thumb #333, track #000 */
+}
+
+/* For Chrome/Safari/Edge */
+#planetDescPanel::-webkit-scrollbar {
+  width: 10px;
+  background-color: #000; /* scroll track */
+}
+
+#planetDescPanel::-webkit-scrollbar-thumb {
+  background-color: #333; /* scroll thumb */
+}
+
+/* Make the planetDescPanel's scrollbar black */
+#planetDescPanel {
+    scrollbar-color: #333 #000; 
+  }
+  #planetDescPanel::-webkit-scrollbar {
+    width: 10px;
+    background-color: #000;
+  }
+  #planetDescPanel::-webkit-scrollbar-thumb {
+    background-color: #333; 
+  }
+  
+
+  
+
+#descHeader {
+    display: relative;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #555;
+}
+
+#descPlanetName {
+    font-weight: bold;
+    font-size: 150px;
+    text-align: center;
+}
+
+#closeDescPanel {
+    cursor: pointer;
+    font-size: 34px;
+    position: absolute;
+    top: 25px;
+}
+
+#descMuteButton {
+    position: absolute;
+    top: 18px; 
+    left: 60px;  /* adjust to place it horizontally as you like */
+    font-size: 25px;
+    cursor: pointer;
+  }
+  
+  /* Pause button near the mute button */
+  #descPauseButton {
+    position: absolute;
+    top: 15px;
+    left: 25px; /* place it to the right of the mute button */
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+
+#descContent {
+    padding-top: 1px;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 2;
+    margin: 10%;
+}
+
+/* ---------- TABLE for numeric fields ---------- */
+.desc-table {
+  width: 100%;
+  border-collapse: collapse; 
+  margin-top: 5rem;
+}
+
+.desc-table th,
+.desc-table td {
+  padding: 0.5rem;
+  vertical-align: top;
+  border: 1px solid #555; /* <--- This adds a border around each cell */
+}
+
+.desc-table th {
+  text-align: center;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.desc-table td {
+  text-align: center;
+}
