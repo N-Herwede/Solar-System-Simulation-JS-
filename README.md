@@ -1,4 +1,4 @@
-# ☀️ Solar-System-Simulation in Three.js 🌍✨🌎
+# ☀️ Solar-System-Simulation in Three.js 🌍
 
 An  educational 3D solar system simulation built using Three.js. Explore realistic planets, moons, asteroid belts, and the International Space Station with , dynamic data panels, and audio narration.
 
